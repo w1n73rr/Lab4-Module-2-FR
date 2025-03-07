@@ -1,0 +1,17 @@
+import { Vehicles } from "./lab4.js";
+var TypeOfDocument = Vehicles.TypeOfDocument;
+var Owner = Vehicles.Owner;
+var classAuto = Vehicles.classAuto;
+var BodyType = Vehicles.BodyType;
+var Car = Vehicles.Car;
+var Motorbike = Vehicles.Motorbike;
+var VehicleStorage = Vehicles.VehicleStorage;
+const owner = new Owner("Данил", "Ушаков", "Романович", new Date(2005, 21, 10), TypeOfDocument.PASSPORT, 123456, 7890);
+const car = new Car(BodyType.SEDAN, classAuto.A, 2022, "Lada", "Vesta", "JHMCM56557C404453", "03-10/543", owner);
+const motorBike = new Motorbike("Одинарная закрытая рама", true, 2020, "Yamaha", "Model1", "JHMCM56557C404453", "03-10/543", owner);
+const jsonStrignify = JSON.stringify(car);
+const vehicleStorage = new VehicleStorage();
+vehicleStorage.save(car);
+vehicleStorage.save(motorBike);
+console.log(vehicleStorage.getAll());
+console.log(jsonStrignify);
